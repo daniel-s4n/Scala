@@ -1,0 +1,5 @@
+package Classes
+
+object Cat {
+
+}
