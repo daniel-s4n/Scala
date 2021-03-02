@@ -1,10 +1,15 @@
 # Scala
 
-### Taller 1
-Enlace al código del [Taller 1](https://github.com/daniel-s4n/Scala/tree/main/talleres/src/main/scala/Taller1)
+## Funciones
+- [Enlace](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/Functions/Taller1.scala) al código del taller de funciones.
+- [Enlace](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/Functions/Recursion.scala) al código del taller de Recursion
 
-### Taller 2
-Enlace al código del [Taller 2](https://github.com/daniel-s4n/Scala/tree/main/talleres/src/main/scala/Taller2)
+
+## Estructuras
+Enlace al [directorio](https://github.com/daniel-s4n/Scala/tree/main/talleres/src/main/scala/dataStructures) con los talleres de estructuras
+- [Listas](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/dataStructures/List.scala)
+- [Numeros naturales](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/dataStructures/Nat.scala)
+- Tree (Coming Soon)
 
 ### Documentación
 - [Sealed](https://www.waitingforcode.com/scala-core/sealed-keyword-scala/read)
