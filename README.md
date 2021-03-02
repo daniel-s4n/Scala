@@ -9,7 +9,7 @@
 Enlace al [directorio](https://github.com/daniel-s4n/Scala/tree/main/talleres/src/main/scala/dataStructures) con los talleres de estructuras
 - [Listas](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/dataStructures/List.scala)
 - [Numeros naturales](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/dataStructures/Nat.scala)
-- Tree (Coming Soon)
+- [Árboles](https://github.com/daniel-s4n/Scala/blob/main/talleres/src/main/scala/dataStructures/Tree.scala)
 
 ### Documentación
 - [Sealed](https://www.waitingforcode.com/scala-core/sealed-keyword-scala/read)
