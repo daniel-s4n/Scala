@@ -1,4 +1,4 @@
-package Taller1
+package Functions
 
 object Taller1 extends App{
   // Ejercicio 1
@@ -43,7 +43,8 @@ object Taller1 extends App{
   }
 
   //Ejercicio 11
-  val calCalario15 = genCalSalarioBono(0.15)
+  val calCalario15: (Double, Double) => Double = genCalSalarioBono(1.15)
+
 
   //Ejercicio 12
   val calCalario100 = genCalSalarioBono(1.00)
@@ -52,5 +53,5 @@ object Taller1 extends App{
   val circulo = areaCirculo(3.3)
 
   //compSalario(calSalarioBono, 1300, 100)
-  println( calSalario5(1000, 200) )
+  println( calCalario15(1000, 200) )
 }

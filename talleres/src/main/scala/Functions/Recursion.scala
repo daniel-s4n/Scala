@@ -1,4 +1,4 @@
-package Taller1
+package Functions
 import scala.annotation.tailrec
 
 class Recursion {

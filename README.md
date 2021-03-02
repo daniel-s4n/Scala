@@ -8,7 +8,9 @@ Enlace al código del [Taller 2](https://github.com/daniel-s4n/Scala/tree/main/t
 
 ### Documentación
 - [Sealed](https://www.waitingforcode.com/scala-core/sealed-keyword-scala/read)
+- [Underscore Use](https://www.baeldung.com/scala/underscore)
 - [Object y Case Object](https://www.baeldung.com/scala/case-object-vs-object)
+- [Tail Recursion](https://www.scala-exercises.org/scala_tutorial/tail_recursion)
 - [case class](https://docs.scala-lang.org/tour/case-classes.html)
 - [Nil, Null, Nothing, Unit and None](https://www.baeldung.com/scala/nil-null-nothing-unit-none)
 - [Pattern Matching](https://docs.scala-lang.org/tour/pattern-matching.html)

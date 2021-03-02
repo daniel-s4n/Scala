@@ -1,4 +1,4 @@
-package List
+package dataStructures
 
 import scala.annotation.tailrec
 
@@ -6,10 +6,7 @@ sealed trait List[+A]
 case object Nil extends List[Nothing]
 case class Const[+A](h: A, t: List[A]) extends List[A]
 
-//TODO: Pasar lo correspondiente a listas a una nueva clase y dejar el taller solo
-
 object List extends App {
-  // Notas de clase
   def apply[A](as: A*): List[A] = {
     if (as.isEmpty) Nil
     else Const(as.head, apply(as.tail: _*))
@@ -21,10 +18,12 @@ object List extends App {
     case Nil          => 0
     case Const(h, t)  => 1 + length(t)
   }
+
   def sum(ints: List[Int]):Int  = ints match {
     case Nil        => 0
     case Const(h,t) => h + sum(t)
   }
+
   def product(ds: List[Double]):Double = ds match {
     case Nil        => 1
     case Const(h,t) => h * product(t)
@@ -47,6 +46,68 @@ object List extends App {
     case (n, Nil)         => Nil
     case (n, Const(h, t)) => drop(n-1, t)
   }
+
+  // -------------------- Taller 2 --------------------
+
+  // Ejercicio 2
+  // Implementa la función tail que remueva el primer elemento de una lista
+  def tail[A](ls: List[A]):List[A] = ls match{
+    case Nil          => Nil
+    case Const(h, t)  => t
+  }
+
+  // Ejercicio 3
+  // Implementa la función head que devuelva el primer elemento de la lista.
+  def head[A](ls: List[A]):A = ls match{
+    case Const(h,_) => h
+  }
+
+  // Ejercicio 4
+  // Esta función recibe un arreglo de valores Boolean y devuelve true si todos los
+  // valores son verdaderos, en caso contrario devuelve false.
+  @tailrec
+  def and(lst:List[Boolean]):Boolean = lst match {
+    case Nil              => true
+    case Const(false, _)  => false
+    case Const(true,  t)  => and(t)
+  }
+
+  // Ejercicio 5
+  // Esta función recibe un arreglo de valores Boolean y devuelve false si todos los
+  // valores son falsos, en caso contrario devuelve true.
+  @tailrec
+  def or(lst:List[Boolean]):Boolean = lst match {
+    case Const(true,  Nil) => true
+    case Const(false, Nil) => false
+    case Const(true,  _)   => true
+    case Const(false, t)   => or(t)
+  }
+
+  // Ejercicio 6
+  //  Esta función recibe un arreglo de valores Int y devuelve valor máximo de todos
+  //  los valores en la lista.
+  def max(lst: List[Int]): Int = {
+    @tailrec
+    def maxis(lst: List[Int], gr:Int):Int = lst match {
+      case Nil          => gr
+      case Const(h, t)  => if(h > gr) maxis(t, h) else maxis(t, gr)
+    }
+    maxis(lst, 0)
+  }
+
+  // Ejercicio 7
+  //  Esta función recibe un arreglo de valores Long y devuelve valor mı́nimo de todos
+  //  los valores en la lista.
+  def min(lst: List[Long]): Long = {
+    @tailrec
+    def mini(lst: List[Long], gr:Long):Long = lst match {
+      case Nil          => gr
+      case Const(h, t)  => if(h < gr) mini(t, h) else mini(t, gr)
+    }
+    mini(lst, head(lst))
+  }
+
+  // -------------------- Taller 3 v1--------------------
 
   def take[A](n:Int, lst:List[A]):List[A] = {
     @tailrec
@@ -123,44 +184,6 @@ object List extends App {
     concater(lst, Nil)
   }
 
-  //--------------Silly Testing-----------------------
-  val ls = Const(1, Const(2, Const(3, Const(4, Nil))))
-  val lsa = take(1, ls)
-  println(lsa)
-  //------------------------------------------------
+  // -------------------- Taller 3 v2 --------------------
 
-  // Ejercicio 2
-  def tail[A](ls: List[A]):List[A] = ls match{
-    case Nil          => Nil
-    case Const(h, t)  => t
-  }
-
-  // Ejercicio 3
-  def head[A](ls: List[A]):A = ls match{
-//    case Nil => null
-    case Const(h, t) => h
-  }
-
-  // Ejercicio 4
-  @tailrec
-  def and(lst:List[Boolean]):Boolean = lst match {
-    case Nil            => true
-    case Const(false,_) => false
-    case Const(true,t)  => and(t)
-  }
-
-  // Ejercicio 5
-  @tailrec
-  def or(lst:List[Boolean]):Boolean = lst match {
-    case Const(true,Nil)  => true
-    case Const(false,Nil) => false
-    case Const(true, _)   => true
-    case Const(false,t)   => or(t)
-  }
-
-  // Ejercicio 6
-  def max(lst: List[Int]): Int = lst match{
-    case Nil => 0
-    case Const(h, Nil) => h
-  }
 }
