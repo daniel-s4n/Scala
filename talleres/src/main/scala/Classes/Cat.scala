@@ -1,5 +1,0 @@
-package Classes
-
-object Cat {
-
-}

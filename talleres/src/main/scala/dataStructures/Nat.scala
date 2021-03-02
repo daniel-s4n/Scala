@@ -52,9 +52,4 @@ object Nat extends App{
     }
     producer(nat1, nat2, Cero)
   }
-
-  val num1 = Suc(Suc(Suc(Cero)))
-  val num2 = Suc(Suc(Suc(Cero)))
-  println( fromNatToInt(prodNat(num1, num2) ))
-
 }

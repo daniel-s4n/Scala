@@ -48,6 +48,7 @@ object List extends App {
   }
 
   // -------------------- Taller 2 --------------------
+  // COINCIDENCIA DE PATRONES
 
   // Ejercicio 2
   // Implementa la función tail que remueva el primer elemento de una lista
@@ -108,7 +109,13 @@ object List extends App {
   }
 
   // -------------------- Taller 3 v1--------------------
+  // CONSTRUCCION DE LISTAS
 
+  //  Ejercicio 1
+  //  Implemente la función take que se encarga de tomar dos parámetros.
+  //  El primero un valor entero positivo n y el segundo una lista de valores de
+  //  cualquier tiempo. Y esta función se encarga de tomar los n primeros valores, si
+  //  existen de la lista.
   def take[A](n:Int, lst:List[A]):List[A] = {
     @tailrec
     def taker(n:Int, lst:List[A], lstTmp:List[A]):List[A] = (n, lst) match {
@@ -119,6 +126,8 @@ object List extends App {
     taker(n, lst, Nil)
   }
 
+  // Ejercicio 2
+  // Esta función toma una lista y toma los valores iniciales excepto el último.
   def init[A](lst:List[A]):List[A] = {
     @tailrec
     def initer(lst:List[A], lstTmp:List[A]): List[A] = lst match {
@@ -129,6 +138,9 @@ object List extends App {
     initer(lst, Nil)
   }
 
+  // Ejercicio 3
+  // Implemente la función split, recibe dos parámetros n y una lista;
+  // divide la primera lista en n elementos y los restantes quedan en la segunda lista.
   def split[A](n:Int, lst:List[A]):(List[A], List[A]) = {
     @tailrec
     def spliter[A](n:Int, lst:List[A], lstTmp:List[A]):(List[A], List[A]) = (n, lst) match {
@@ -138,6 +150,9 @@ object List extends App {
     spliter(n, lst, Nil)
   }
 
+  // Ejercicio 4
+  // Implemente la función zip esta función fusiona dos listas de tipos
+  // diferentes en una lista de pares del mismo tamaño.
   def zip[A,B](lst1:List[A], lst2:List[B]):List[(A,B)] = {
     @tailrec
     def zipper(lst1:List[A], lst2:List[B], lstTmp:List[(A,B)]): List[(A,B)] = (lst1, lst2) match{
@@ -148,6 +163,9 @@ object List extends App {
     zipper(lst1, lst2, Nil)
   }
 
+  // Ejercicio 5
+  // Implemente la función unzip esta lista separa una lista de tuplas
+  // en dos listas distintas.
   def unzip[A,B](lst:List[(A,B)]):(List[A], List[B]) = {
     @tailrec
     def unzipper(lst:List[(A,B)], lstTmp1:List[A], lstTmp2:List[B]):(List[A], List[B]) = lst match {
@@ -157,6 +175,9 @@ object List extends App {
     unzipper(lst, Nil, Nil)
   }
 
+  // Ejercicio 6
+  //  Implemente la función reverse. Toma una lista y devuelve una
+  //  versión invertida de la misma.
   def reverse[A](lst:List[A]):List[A] = {
     @tailrec
     def reverser[A](lst:List[A], lstTmp:List[A]):List[A] = lst match {
@@ -166,6 +187,9 @@ object List extends App {
     reverser(lst, Nil)
   }
 
+  // Ejercicio 7
+  //  Implemente la función intersperse. Esta se encarga de entremezclar
+  //  un valor entre los elementos originales de la lista.
   def intersperse[A](elem:A, lst:List[A]):List[A] = {
     @tailrec
     def intersperser[A](elem:A, lst:List[A], lstTmp:List[A]):List[A] = lst match {
@@ -175,6 +199,9 @@ object List extends App {
     intersperser(elem, lst, Nil)
   }
 
+  // Ejercicio 8
+  //  Implemente la función concat. Es función recibe una lista de lista
+  //  valores de un tipo A y la transforma en una lista de valores de tipo A.
   def concat[A](lst: List[List[A]]):List[A] = {
     @tailrec
     def concater(lst:List[List[A]], lstTmp:List[A]):List[A]= lst match {
@@ -185,5 +212,8 @@ object List extends App {
   }
 
   // -------------------- Taller 3 v2 --------------------
+  // FUNCIONES DE ALTO ORDEN
+
+  // Ejercicio 13
 
 }
