@@ -24,3 +24,4 @@ Enlace al [directorio](https://github.com/daniel-s4n/Scala/tree/main/talleres/sr
 - [Pattern Matching](https://docs.scala-lang.org/tour/pattern-matching.html)
 - [Clases genéricas](https://docs.scala-lang.org/tour/generic-classes.html)
 - [Variances (+A, -A, A)](https://docs.scala-lang.org/tour/variances.html)
+- [Classes](https://docs.scala-lang.org/tour/classes.html)
