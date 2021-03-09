@@ -1,4 +1,4 @@
-package dataStructures
+package Inmutable
 
 import scala.annotation.tailrec
 
@@ -45,6 +45,16 @@ object List extends App {
     case (0, lst)         => lst
     case (n, Nil)         => Nil
     case (n, Const(h, t)) => drop(n-1, t)
+  }
+
+  def foldRight[A,B](as:List[A], z:B)(f:(A,B) => B): B = as match {
+    case Nil          => z
+    case Const(x, xs) => f( x, foldRight(xs, z)(f) )
+  }
+
+  def foldLeft[A,B](list:List[A], z:B)(f:(B,A)=>B):B = list match {
+    case Nil         => z
+    case Const(h, t) => foldLeft(t, f(z,h) )(f)
   }
 
   // -------------------- Taller 2 --------------------
@@ -213,7 +223,65 @@ object List extends App {
 
   // -------------------- Taller 3 v2 --------------------
   // FUNCIONES DE ALTO ORDEN
-
   // Ejercicio 13
+  val e13 = foldRight( List(9L, 6L, 7L), Nil:List[Long] )( Const(_,_) )
 
+  // Ejercicio 14
+  //  Compute la función length de una lista utilizando foldRight.
+  def lengthR[A](lst:List[A]):Int = foldRight(lst, 0)((_,y) => y + 1)
+
+  // Ejercicio 15
+  //  Compute la función and utilizando foldRight.
+  def andR(lst:List[Boolean]):Boolean = foldRight(lst, true)( (x,y) => x && y )
+
+  //Ejercicio 16
+  //  La función takeWhile aplicada a un predicado p y a una lista
+  //  lst, retorna el prefijo más largo (posiblemente vacı́o) que satisface p
+  def takeWhile[A](lst:List[A])(p:A => Boolean):List[A] = {
+    def takeWhiler[A](list:List[A],aux:List[A])(p:A=>Boolean):List[A] = list match {
+      case _                  => aux
+      case Const(h,t) if p(h) => takeWhiler(t, addEnd(aux, h))(p)
+    }
+    takeWhiler(lst,Nil)(p)
+  }
+
+  // Ejercicio 17
+  // Implementar la funcion filter
+  def filter[A](lst:List[A])(p:A => Boolean):List[A] = foldRight(lst, Nil:List[A])((x, y) => if(p(x)) Const(x,y) else y)
+
+  // Ejercicio 18
+  //  Implemente la función unzip esta lista separa una lista de tuplas
+  //  en dos listas distintas.
+  def unzip[A,B](lst:List[(A,B)]):(List[A], List[B]) = {
+    foldRight(lst, (Nil:List[A], Nil:List[B]) )( (x,y) => (Const(x._1, y._1), Const(x._2, y._2)))
+  }
+
+  // Ejericio 19
+  // Devuelve la cantidad de elementos de la lista recibida
+  def lengthL[A](list:List[A]):Int =  foldLeft(list, 0)( (x, _) => x + 1)
+
+  // Ejercicio 20
+  //Devuelve un booleano true si todos los elementos de la lista recibida son true
+  def andL(list:List[Boolean]):Boolean = foldLeft(list, true)(_ && _)
+
+  //Ejercicio 21
+  // Devuelve una lista con los elementos de la lista recibida hasta el primer elemento que deje de
+  // cumplir con el predicado recibido
+  def takeWhileL[A](lst:List[A])(p:A => Boolean):List[A] = {
+    def f(b:(Boolean,List[A]),a:A):(Boolean,List[A]) = b match {
+      case (true,lst)  => if ( p(a) ) (true, addEnd(lst, a)) else (false, lst)
+      case (false,lst) => b
+    }
+    foldLeft(lst, (true, Nil:List[A]) )(f)._2
+  }
+
+  //Ejercicio 22
+  // Devuelve una lista con todos los elementos de la lista recibida que cumplan con el predicado recibido
+  def filterL[A](list:List[A])(p:A => Boolean):List[A] = foldLeft(list,Nil:List[A])((y,x) => if( p(x) ) addEnd(y, x) else y)
+
+  //Ejercicio 23.
+  // Devuelve dos listas separando los elementos en las tuplas de la lista recibida, la primer lista con
+  // el primer elemento de cada tupla y la segunda con el segundos elemento de cada tupla
+  def unzipL[A,B](list:List[(A,B)]):(List[A],List[B]) =
+    foldLeft(list, (Nil:List[A], Nil:List[B]) )( (y, x) => (addEnd(y._1, x._1), addEnd(y._2, x._2)) )
 }

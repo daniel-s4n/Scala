@@ -1,7 +1,7 @@
 package Functions
 import scala.annotation.tailrec
 
-class Recursion {
+object Recursion {
   //Ejercicio 16
   def fibonacci(n:Int): Int = {
     if (n == 0) 0

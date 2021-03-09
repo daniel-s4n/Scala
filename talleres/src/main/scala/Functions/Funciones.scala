@@ -1,9 +1,9 @@
 package Functions
 import scala.math.Pi
 
-object Taller1 extends App{
+object Funciones extends App{
   // Ejercicio 1
-  val areaTrianguloRectangulo = (a:Int) => (a*a) / 2
+  val areaTrianguloRectangulo = ( a:Int ) => (a*a) / 2
 
   // Ejercicio 2
   val areaCirculo = new Function1 [Double, Double] {
@@ -46,14 +46,7 @@ object Taller1 extends App{
   //Ejercicio 11
   val calCalario15: (Double, Double) => Double = genCalSalarioBono(1.15)
 
-
   //Ejercicio 12
   val calCalario100 = genCalSalarioBono(1.00)
 
-  val triangulo = areaTrianguloRectangulo(2)
-  val circulo = areaCirculo(1)
-  println(circulo)
-
-  //compSalario(calSalarioBono, 1300, 100)
-  println( calCalario15(1000, 200) )
 }

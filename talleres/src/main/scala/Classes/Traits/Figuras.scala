@@ -31,7 +31,7 @@ case class Cuadrado (val lado:Double) extends Forma {
 object Draw {
   def apply(form:Forma):String = form match {
     case Circulo(rad)               =>  s"Circulo de radio $rad"
-    case Rectangulo(lado1, lado2)   =>  s"Rectangulo de ancho $lado1 y largo $lado2"
+//    case Rectangulo(lado1, lado2)   =>  s"Rectangulo de ancho $lado1 y largo $lado2"
     case Cuadrado(lado)             =>  s"Cuadrado de lados $lado"
   }
 }

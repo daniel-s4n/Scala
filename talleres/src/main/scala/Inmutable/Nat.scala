@@ -1,4 +1,4 @@
-package dataStructures
+package Inmutable
 
 import scala.annotation.tailrec
 
