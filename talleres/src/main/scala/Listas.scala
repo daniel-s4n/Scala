@@ -2,7 +2,11 @@ import scala.+:
 import scala.annotation.tailrec
 
 object Listas extends App {
-  // Notas de clase
+  // Notas de clase - Taller M6
+
+  // Ejercicio 1
+  // La función subs me permite obtener todos los subconjuntos que
+  // un conjunto tiene.
   def subs[A](list: List[A]): List[List[A]] = {
     @tailrec
     def subsAux[A](list: List[A], iterator: Int, aux: List[List[A]]): List[List[A]] = iterator match {
@@ -12,6 +16,7 @@ object Listas extends App {
     subsAux(list, list.length, Nil)
   }
 
+  // Ejercicio 2
   def barajar[A](a:A, lst:List[A]):List[List[A]] = lst match {
     case Nil      => List(List(a))
     case x :: xs  =>(a :: ( x :: xs)) :: (barajar(a, xs)).map(x::_)
@@ -21,6 +26,8 @@ object Listas extends App {
     case Nil      => List(Nil)
     case x :: xs  => (permutar(xs)).flatMap(barajar(x, _))
   }
+
+  // 99 Ejercicios sobre Listas
 
   // Ejercicio 1
   def myLast[A](lst:List[A]):A = lst match {
