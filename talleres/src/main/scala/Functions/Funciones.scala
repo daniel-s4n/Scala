@@ -1,4 +1,5 @@
 package Functions
+import scala.math.Pi
 
 object Taller1 extends App{
   // Ejercicio 1
@@ -6,7 +7,7 @@ object Taller1 extends App{
 
   // Ejercicio 2
   val areaCirculo = new Function1 [Double, Double] {
-    def apply(r:Double) = math.Pi * (r*r)
+    def apply(r:Double) = Pi * (r*r)
   }
 
   //Ejercicio 3
@@ -50,7 +51,8 @@ object Taller1 extends App{
   val calCalario100 = genCalSalarioBono(1.00)
 
   val triangulo = areaTrianguloRectangulo(2)
-  val circulo = areaCirculo(3.3)
+  val circulo = areaCirculo(1)
+  println(circulo)
 
   //compSalario(calSalarioBono, 1300, 100)
   println( calCalario15(1000, 200) )

@@ -13,6 +13,7 @@ Enlace al [directorio](https://github.com/daniel-s4n/Scala/tree/main/talleres/sr
 
 ## Clases y Objetos
 Enlace al [directorio](https://github.com/daniel-s4n/Scala/tree/main/talleres/src/main/scala/Classes) con las clases y objetos del taller M4
+- [Traits](https://github.com/daniel-s4n/Scala/tree/main/talleres/src/main/scala/Classes/Traits)
 
 ### Referencias
 - [Sealed](https://www.waitingforcode.com/scala-core/sealed-keyword-scala/read)
@@ -25,3 +26,4 @@ Enlace al [directorio](https://github.com/daniel-s4n/Scala/tree/main/talleres/sr
 - [Clases genéricas](https://docs.scala-lang.org/tour/generic-classes.html)
 - [Variances (+A, -A, A)](https://docs.scala-lang.org/tour/variances.html)
 - [Classes](https://docs.scala-lang.org/tour/classes.html)
+- [FoldLeft - FoldRight](https://stackoverflow.com/questions/40827710/scala-fold-right-and-fold-left)
